@@ -1,0 +1,222 @@
+swagger: '2.0'
+info:
+  title: TC Preferences API v5
+  description: >
+    ## Security constraints
+    
+    All preferences endpoints can only be called from admins, or users accessing his/her preferences, or by M2M token with proper scopes.
+    
+  version: "1.0.0"
+host: api.topcoder.com
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+schemes:
+  - http
+  - https
+basePath: /v5
+produces:
+  - application/json
+consumes:
+  - application/json
+security:
+  - Bearer: []
+
+paths:
+  /users/{userId}/preferences:
+    get:
+      description: Get preferences of user
+      tags:
+        - Preferences
+      parameters:
+        - name: userId
+          type: string
+          in: path
+          required: true
+      responses:
+        200:
+          description: OK - the request was successful
+          schema:
+            $ref: '#/definitions/PreferencesResponse'
+        400:
+          $ref: '#/definitions/BadRequest'
+        401:
+          $ref: '#/definitions/Unauthorized'
+        403:
+          $ref: '#/definitions/Forbidden'
+        404:
+          $ref: '#/definitions/NotFound'
+        500:
+          $ref: '#/definitions/ServerError'
+    head:
+      description: Get preferences head of user. Only response status is set. Response body is empty.
+      tags:
+        - Preferences
+      parameters:
+        - name: userId
+          type: string
+          in: path
+          required: true
+      responses:
+        204:
+          description: OK - the request was successful
+        400:
+          $ref: '#/definitions/BadRequest'
+        401:
+          $ref: '#/definitions/Unauthorized'
+        403:
+          $ref: '#/definitions/Forbidden'
+        404:
+          $ref: '#/definitions/NotFound'
+        500:
+          $ref: '#/definitions/ServerError'
+    put:
+      description: Update preferences of user.
+      tags:
+        - Preferences
+      parameters:
+        - name: userId
+          type: string
+          in: path
+          required: true
+        - name: preferences
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PreferencesRequest'
+      responses:
+        204:
+          description: OK - the request was successful
+        400:
+          $ref: '#/definitions/BadRequest'
+        401:
+          $ref: '#/definitions/Unauthorized'
+        403:
+          $ref: '#/definitions/Forbidden'
+        404:
+          $ref: '#/definitions/NotFound'
+        500:
+          $ref: '#/definitions/ServerError'
+
+definitions:
+  PreferencesResponse:
+    type: object
+    required:
+      - email
+      - objectId
+    properties:
+      email:
+        type: object
+        required:
+          - subscriptions
+        properties:
+          subscriptions:
+            type: object
+            required:
+              - "Dev Newsletter"
+              - "Design Newsletter"
+              - "Data Science Newsletter"
+            properties:
+              "Dev Newsletter":
+                type: boolean
+                description: whether to receive dev newsletter
+              "Design Newsletter":
+                type: boolean
+                description: whether to receive design newsletter
+              "Data Science Newsletter":
+                type: boolean
+                description: whether to receive data science newsletter
+      objectId:
+        type: string
+        description: the object id, it is same as user id
+
+  PreferencesRequest:
+    type: object
+    required:
+      - email
+      - objectId
+    properties:
+      email:
+        type: object
+        required:
+          - firstName
+          - lastName
+          - createdBy
+          - updatedBy
+          - subscriptions
+        properties:
+          firstName:
+            type: string
+          lastName:
+            type: string
+          createdBy:
+            type: string
+          updatedBy:
+            type: string
+          subscriptions:
+            type: object
+            required:
+              - "Dev Newsletter"
+              - "Design Newsletter"
+              - "Data Science Newsletter"
+            properties:
+              "Dev Newsletter":
+                type: boolean
+                description: whether to receive dev newsletter
+              "Design Newsletter":
+                type: boolean
+                description: whether to receive design newsletter
+              "Data Science Newsletter":
+                type: boolean
+                description: whether to receive data science newsletter
+      objectId:
+        type: string
+        description: the object id, it is same as user id
+
+  # Schema for error body
+  Unauthorized:
+    type: object
+    description: The unauthorized error entity.
+    properties:
+      message:
+        type: string
+        description: The unauthorized error message.
+        example: Unable to authenticate the user.
+
+  NotFound:
+    type: object
+    description: The not found error entity.
+    properties:
+      message:
+        type: string
+        description: The not found error message.
+        example: User of given id could not be found.
+
+  ServerError:
+    type: object
+    description: The server error entity.
+    properties:
+      message:
+        type: string
+        description: The server error message.
+        example: Something went wrong while processing your request.
+
+  BadRequest:
+    type: object
+    description: The bad request error entity.
+    properties:
+      message:
+        type: string
+        description: The bad request error message.
+        example: Invalid input.
+
+  Forbidden:
+    type: object
+    description: The permission error entity.
+    properties:
+      message:
+        type: string
+        description: The forbidden error message.
+        example: You are not allowed to access the request.
