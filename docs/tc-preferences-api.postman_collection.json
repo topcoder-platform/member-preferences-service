@@ -1,0 +1,1911 @@
+{
+	"info": {
+		"_postman_id": "d219d4ed-e33c-401f-a499-dbcf57aca381",
+		"name": "tc-preferences-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get preferences",
+			"item": [
+				{
+					"name": "get preferences by admin (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences by user (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{USER_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences by copilot (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{COPILOT_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences by M2M full access (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_FULL_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences by M2M read access (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_READ_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences by M2M update access (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_UPDATE_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences - missing token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences - invalid token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{INVALID_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences - expired token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{EXPIRED_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences - user not found (404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/888888889/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"888888889",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4b651537-6c26-4f18-ae6d-6f3c53aa7f18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f50ae8d-c7dd-46d6-9b99-6c69b641ee3d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "get preferences head",
+			"item": [
+				{
+					"name": "get preferences head by admin (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head by user (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{USER_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head by copilot (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{COPILOT_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head by M2M full access (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_FULL_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head by M2M read access (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_READ_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head by M2M update access (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_UPDATE_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head - missing token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head - invalid token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{INVALID_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head - expired token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{EXPIRED_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get preferences head - user not found (404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb283d16-ca1b-4b47-8e95-ed76324d2174",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/888888889/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"888888889",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4b651537-6c26-4f18-ae6d-6f3c53aa7f18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f50ae8d-c7dd-46d6-9b99-6c69b641ee3d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "update preferences",
+			"item": [
+				{
+					"name": "update preferences by admin (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences by user (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{USER_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": true,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences by copilot (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{COPILOT_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": true,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences by M2M full access (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_FULL_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences by M2M read access (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_READ_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences by M2M update access (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{M2M_UPDATE_ACCESS_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": true,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - missing token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": true,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - invalid token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{INVALID_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - expired token (403)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{EXPIRED_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - user not found (404)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"898989898\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/898989898/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"898989898",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - invalid subscription field value (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": [\"invalid\"],\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - invalid subscription field name (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true,\n    \t\t\"invalid\": false\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - missing firstName (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - invalid objectId (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": {}\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences - objectId mismatched (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user1\",\n    \t\"firstName\": \"first name\",\n    \t\"lastName\": \"last name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": false,\n    \t\t\"Design Newsletter\": true,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"123123\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID}}",
+								"preferences"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4b651537-6c26-4f18-ae6d-6f3c53aa7f18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f50ae8d-c7dd-46d6-9b99-6c69b641ee3d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "global failures",
+			"item": [
+				{
+					"name": "route not found (404)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/not-found-route",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"not-found-route"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4b651537-6c26-4f18-ae6d-6f3c53aa7f18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f50ae8d-c7dd-46d6-9b99-6c69b641ee3d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4e396df5-d3a4-4c5f-8477-eeead6536fd5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "683c9325-3bdf-4d2f-89f2-6e2e4f5c854f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
