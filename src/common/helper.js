@@ -17,7 +17,9 @@ let dbInstance
 let dbClientInstance
 
 AWS.config.update({
-  region: config.AMAZON_AWS_REGION
+  region: config.AMAZON_AWS_REGION,
+  accessKeyId: config.AMAZON_AWS_ACCESS_KEY_ID,
+  secretAccessKey: config.AMAZON_AWS_SECRET_ACCESS_KEY
 })
 
 /**
@@ -217,6 +219,15 @@ async function getUser (userId) {
   }
   if (!user.lastName || _.isEmpty(user.lastName)) {
     throw new Error(`Missing lastName for user of id ${userId}`)
+  }
+  // Refer https://apps.topcoder.com/forums/?module=Thread&threadID=935232&mc=6
+  // send a fake email address during testing
+  if (process.env.NODE_ENV === 'test') {
+    if (userId === '8547899') {
+      user.email = 'repeat@test.com'
+    } else {
+      user.email = `${Date.now()}@test.com`
+    }
   }
   return user
 }

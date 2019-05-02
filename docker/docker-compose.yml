@@ -1,6 +1,12 @@
 version: '3'
 services:
-  dynamodb:
-    image: "amazon/dynamodb-local"
+  member-preferences-service:
+    image: member-preferences-service:latest
+    container_name: member-preferences-service
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    env_file:
+      - api.env
     ports:
-      - "8000:8000"
+      - 3000:3000

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d219d4ed-e33c-401f-a499-dbcf57aca381",
+		"_postman_id": "4f1fc352-df0f-44d5-a498-37e3fde03f69",
 		"name": "tc-preferences-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1797,6 +1797,57 @@
 								"preferences"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "update preferences by admin, new user in Mailchimp (204)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71883186-3abb-4529-89bd-6eea09b9934e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": {\n    \t\"createdBy\": \"user2\",\n    \t\"firstName\": \"first-name\",\n    \t\"lastName\": \"last-name\",\n    \t\"subscriptions\": {\n    \t\t\"Dev Newsletter\": true,\n    \t\t\"Design Newsletter\": false,\n    \t\t\"Data Science Newsletter\": true\n    \t},\n    \t\"updatedBy\": \"user2\"\n    },\n    \"objectId\": \"{{USER_ID2}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/{{USER_ID2}}/preferences",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"{{USER_ID2}}",
+								"preferences"
+							]
+						},
+						"description": "After executing this testcase, use get preferences endpoint to verify the subscriptions"
 					},
 					"response": []
 				}

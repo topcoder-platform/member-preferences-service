@@ -5,7 +5,7 @@
 - NodeJS (v10)
 - AWS DynamoDB
 - Java 6+ (if using runnable jar of local DynamoDB)
-- Docker, Docker Compose (if using docker of local DynamoDB)
+- Docker, Docker Compose
 
 ## Configuration
 
@@ -26,12 +26,19 @@ The following parameters can be set in config files or in env variables:
 - AMAZON_AWS_REGION: the Amazon AWS region to access DynamoDB
 - AMAZON_AWS_DYNAMODB_READ_CAPACITY_UNITS: AWS DynamoDB read capacity units
 - AMAZON_AWS_DYNAMODB_WRITE_CAPACITY_UNITS: AWS DynamoDB write capacity units
-- AMAZON_AWS_DYNAMODB_ENDPOINT: DynamoDB endpoint, set it only for local DynamoDB
+- AMAZON_AWS_DYNAMODB_ENDPOINT: DynamoDB endpoint, set it only for `local DynamoDB`
 - AMAZON_AWS_DYNAMODB_PREFERENCE_TABLE: AWS DynamoDB table for user preferences
+- AMAZON_AWS_ACCESS_KEY_ID: AWS access key id
+- AMAZON_AWS_SECRET_ACCESS_KEY: AWS secret access key
 - MAILCHIMP_API_BASE_URL: Mailchimp API base URL
 - MAILCHIMP_API_KEY: Mailchimp API key
 - MAILCHIMP_LIST_ID: Mailchimp list/audience id
 - SEARCH_USERS_URL: URL to search users
+- BUSAPI_URL: the bus api, default value is 'https://api.topcoder-dev.com/v5'
+- KAFKA_ERROR_TOPIC: Kafka error topic, default value is 'error.notification',
+- EMAIL_PREFERENCE_CREATED_TOPIC: the topic name for creating email preference, default value is 'member.action.profile.preference.create'.
+- EMAIL_PREFERENCE_UPDATED_TOPIC: the topic name for updating email preference, default value is 'member.action.profile.preference.update'.
+- KAFKA_MESSAGE_ORIGINATOR: the Kafka message originator, default value is 'member.preferences.service'
 
 Set the following environment variables so that the app can get TC M2M token (use 'set' insted of 'export' for Windows OS):
 
@@ -79,9 +86,9 @@ If you want to use runnable jar of local DynamoDB:
 If you want to use docker of local DynamoDB:
 
 - see `https://hub.docker.com/r/amazon/dynamodb-local` for details
-- you may go to `docker` folder, and run `docker-compose up` to start local DynamoDB
+- you may go to `docker/dynamodb` folder, and run `docker-compose up` to start local DynamoDB
 - configure the AMAZON_AWS_DYNAMODB_ENDPOINT config parameter to `http://localhost:8000` in config file or via environment variable
-- follow above section to configure AWS credential, when using local DynamoDB, any fake access key id and secret access key may be used
+- follow above section to configure AWS credential, when using local DynamoDB, any fake access key id and secret access key may be used. An alternative approach is setting AMAZON_AWS_ACCESS_KEY_ID and AMAZON_AWS_SECRET_ACCESS_KEY under `config/default.js`
 
 ## AWS DynamoDB setup
 
@@ -114,6 +121,34 @@ If you want to use docker of local DynamoDB:
 - Start app `npm start`
 - App is running at `http://localhost:3000`
 
+## Deployment with Docker
+
+1. Make sure that DynamoDB are running as per instructions above.
+
+2. Go to `docker` folder
+
+3. Rename the file `sample.api.env` to `api.env` And properly update the IP addresses to match your environment for the variables if need: AMAZON_AWS_DYNAMODB_ENDPOINT( make sure to use IP address instead of hostname ( i.e localhost will not work)).
+If you are using local DynamoDB:
+```
+AMAZON_AWS_DYNAMODB_ENDPOINT=http://192.168.31.8:8000
+AMAZON_AWS_ACCESS_KEY_ID=SOME_ACCESS_KEY_ID
+AMAZON_AWS_SECRET_ACCESS_KEY=SOME_SECRET_ACCESS_KEY
+```
+If you are using AWS DynamoDB, you need to configure the following environment:
+```
+AMAZON_AWS_REGION=YOUR_AWS_REGION
+AMAZON_AWS_ACCESS_KEY_ID=YOUR_AWS_ACCOUNT_ACCESS_KEY_ID
+AMAZON_AWS_SECRET_ACCESS_KEY=YOUR_AWS_ACCOUNT_SECRET_ACCESS_KEY
+```
+
+4. Once that is done, go to run the following command
+
+```
+docker-compose up
+```
+
+5. When you are running the application for the first time, It will take some time initially to download the image and install the dependencies
+
 ## Verification
 
 - import Postman collection and environment in the docs folder to Postman
@@ -142,9 +177,17 @@ info: Data of id 23124329: {
 info: Done!
 ```
 
+- Check the app console if you find `info: Add contact <EMAIL> to Mailchimp`, An Kafka event has sent using bus api. For each success PUT request, it will also send an event using bus api. Go to https://lauscher.topcoder-dev.com/ view topics `member.action.profile.preference.create` and `member.action.profile.preference.update` to verify the Kafka message have successfully received.
+
 - if you are using AWS DynamoDB, you may also view the table content in AWS web console
 
 ## Notes
 
 - swagger is at `docs/swagger.yaml`, you may check it using `http://editor.swagger.io/`
 - all JWT tokens provided in Postman environment file and tests are created in `https://jwt.io` with secret `mysecret`
+
+## Testing
+
+- Set configuration under `config/test.js`
+- Run `npm run test` to execute unit tests and generate coverage report.
+- RUN `npm run e2e` to execute e2e tests and generate coverage report.
