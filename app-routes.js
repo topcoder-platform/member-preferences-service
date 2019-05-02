@@ -8,6 +8,7 @@ const helper = require('./src/common/helper')
 const errors = require('./src/common/errors')
 const routes = require('./src/routes')
 const authenticator = require('tc-core-library-js').middleware.jwtAuthenticator
+const healthcheck = require('topcoder-healthcheck-dropin')
 
 /**
  * Checks if the source matches the term.
@@ -97,6 +98,9 @@ module.exports = (app) => {
       app[verb](`${config.API_VERSION}${path}`, helper.autoWrapExpress(actions))
     })
   })
+
+  // Topcoder's health check dropin
+  app.use(healthcheck.middleware([(req, res) => true]))
 
   // Check if the route is not found or HTTP method is not supported
   app.use('*', (req, res) => {
