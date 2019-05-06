@@ -29,5 +29,11 @@ module.exports = {
       access: [constants.UserRoles.Admin, constants.UserRoles.User],
       scopes: [constants.Scopes.UpdatePreference, constants.Scopes.AllPreference]
     }
+  },
+  '/users/health': {
+    get: {
+      controller: 'HealthCheckController',
+      method: 'check'
+    }
   }
 }
