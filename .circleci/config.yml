@@ -43,7 +43,7 @@ build_steps: &build_steps
             source awsenvconf
             ./buildenv.sh -e ${DEPLOY_ENV} -b ${LOGICAL_ENV}-${APP_NAME}-deployvar
             source buildenvvar
-            ./master_deploy.sh -d ECS -e ${DEPLOY_ENV} -t latest -s dev-global-appvar,${LOGICAL_ENV}-${APP_NAME}-appvar -i terms-service
+            ./master_deploy.sh -d ECS -e ${DEPLOY_ENV} -t latest -s dev-global-appvar,${LOGICAL_ENV}-${APP_NAME}-appvar -i member-preferences-service
 jobs:
   # Build & Deploy against development backend
   "build-dev":
