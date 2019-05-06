@@ -161,14 +161,14 @@ async function updateRecord (record) {
 /**
  * Get single record from DynamoDB
  * @param     {String} table the table name
- * @param     {String} id the record id
+ * @param     {String} objectId the record's objectId attribute
  * @return    {promise} the result, null/undefined is returned if none is found
  */
-async function getRecord (table, id) {
+async function getRecord (table, objectId) {
   const dbClient = getDbClient()
   const params = {
     TableName: table,
-    Key: { id }
+    Key: { objectId }
   }
   return new Promise((resolve, reject) => {
     dbClient.get(params, (err, data) => {

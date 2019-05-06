@@ -13,10 +13,10 @@ const createTable = async () => {
   await helper.createTable({
     TableName: config.AMAZON_AWS_DYNAMODB_PREFERENCE_TABLE,
     KeySchema: [
-      { AttributeName: 'id', KeyType: 'HASH' } // Partition key
+      { AttributeName: 'objectId', KeyType: 'HASH' } // Partition key
     ],
     AttributeDefinitions: [
-      { AttributeName: 'id', AttributeType: 'S' } // S -> String
+      { AttributeName: 'objectId', AttributeType: 'S' } // S -> String
     ],
     ProvisionedThroughput: {
       ReadCapacityUnits: Number(config.AMAZON_AWS_DYNAMODB_READ_CAPACITY_UNITS),

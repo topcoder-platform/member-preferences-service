@@ -181,7 +181,7 @@ async function updateUserPreferences (userId, data) {
     logger.info('Update DynamoDB user preferences record')
     const record = {
       TableName: config.AMAZON_AWS_DYNAMODB_PREFERENCE_TABLE,
-      Key: { id: userId }, // userId is used as record id
+      Key: { objectId: userId }, // userId is used as record id
       UpdateExpression: 'set updatedAt = :updatedAt',
       ExpressionAttributeValues: {
         ':updatedAt': data.updatedAt
@@ -195,7 +195,7 @@ async function updateUserPreferences (userId, data) {
   } else {
     // create db record
     logger.info('Create DynamoDB user preferences record')
-    data.id = userId // userId is used as record id
+
     await helper.insertRecord({
       TableName: config.AMAZON_AWS_DYNAMODB_PREFERENCE_TABLE,
       Item: data

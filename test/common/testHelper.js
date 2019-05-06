@@ -32,7 +32,7 @@ async function clearData () {
 async function deleteRecord (userId) {
   const param = {
     TableName: config.AMAZON_AWS_DYNAMODB_PREFERENCE_TABLE,
-    Key: { id: userId }
+    Key: { objectId: userId }
   }
   const dbClient = helper.getDbClient()
   return new Promise((resolve, reject) => {
