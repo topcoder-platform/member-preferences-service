@@ -11,7 +11,7 @@ install_dependency: &install_dependency
 install_deploysuite: &install_deploysuite
           name: Installation of install_deploysuite.
           command: |
-            git clone --branch v1.3 https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
+            git clone --branch master https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
             cp ./../buildscript/master_deploy.sh .
             cp ./../buildscript/buildenv.sh .
             cp ./../buildscript/awsconfiguration.sh .
@@ -43,7 +43,7 @@ build_steps: &build_steps
             source awsenvconf
             ./buildenv.sh -e ${DEPLOY_ENV} -b ${LOGICAL_ENV}-${APP_NAME}-deployvar
             source buildenvvar
-            ./master_deploy.sh -d ECS -e ${DEPLOY_ENV} -t latest -s dev-global-appvar,${LOGICAL_ENV}-${APP_NAME}-appvar -i member-preferences-service
+            ./master_deploy.sh -d ECS -e ${DEPLOY_ENV} -t latest -s ${GLOBAL_ENV}-global-appvar,${LOGICAL_ENV}-${APP_NAME}-appvar -i member-preferences-service
 jobs:
   # Build & Deploy against development backend
   "build-dev":
@@ -51,6 +51,7 @@ jobs:
     environment:
       DEPLOY_ENV: "DEV"
       LOGICAL_ENV: "DEV"
+      GLOBAL_ENV: "dev"
       APP_NAME: "member-preferences-service"
     steps: *build_steps
   # Build & Deploy against production backend
@@ -59,6 +60,7 @@ jobs:
     environment:
       DEPLOY_ENV: "PROD"
       LOGICAL_ENV: "PROD"
+      GLOBAL_ENV: "prod"
       APP_NAME: "member-preferences-service"
     steps: *build_steps
 workflows:
