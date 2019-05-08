@@ -32,6 +32,16 @@ function checkIfExists (source, term) {
     throw new Error('Term argument should be either a string or an array')
   }
 
+  if (source.length === 0) {
+    // Source is empty. No need to check term
+    return true
+  } else if (terms.length === 0) {
+    if (source.length === 0) {
+      // Source is empty. Term thus qualifies
+      return true
+    }
+  }
+
   for (let i = 0; i < terms.length; i++) {
     if (source.includes(terms[i])) {
       return true

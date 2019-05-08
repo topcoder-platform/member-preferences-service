@@ -134,14 +134,6 @@ describe('Topcoder - MemberPreferences API E2E Test', () => {
     expect(res.body.message).to.equal('You are not authorized to perform this action')
   })
 
-  it('Get user preferences user role is not allowed, return 403', async () => {
-    const res = await chai.request(app)
-      .get(`${config.API_VERSION}/users/${userId.user1}/preferences`)
-      .set('Authorization', `Bearer ${token.invalidRole}`)
-    expect(res.status).to.equal(403)
-    expect(res.body.message).to.equal('You are not allowed to perform this action!')
-  })
-
   it('Get user preferences using incorrect m2m token, return 403', async () => {
     const res = await chai.request(app)
       .get(`${config.API_VERSION}/users/${userId.user1}/preferences`)
@@ -348,13 +340,13 @@ describe('Topcoder - MemberPreferences API E2E Test', () => {
     expect(res.body.message).to.equal('You are not authorized to perform this action')
   })
 
-  it('Update user preferences user role is not allowed, return 403', async () => {
+  it('Update user preferences, non admin user cannot update another users preferences, return 400', async () => {
     const res = await chai.request(app)
       .put(`${config.API_VERSION}/users/${userId.user1}/preferences`)
       .set('Authorization', `Bearer ${token.invalidRole}`)
       .send(reqBody.data)
-    expect(res.status).to.equal(403)
-    expect(res.body.message).to.equal('You are not allowed to perform this action!')
+    expect(res.status).to.equal(400)
+    expect(res.body.message).to.equal('The userId 305384 does not match the objectId 12345.')
   })
 
   it('Update user preferences using incorrect m2m token, return 403', async () => {

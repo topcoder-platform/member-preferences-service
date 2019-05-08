@@ -12,21 +12,21 @@ module.exports = {
       controller: 'PreferenceController',
       method: 'getUserPreferencesHead',
       auth: 'jwt',
-      access: [constants.UserRoles.Admin, constants.UserRoles.User],
+      access: [],
       scopes: [constants.Scopes.ReadPreference, constants.Scopes.AllPreference]
     },
     get: {
       controller: 'PreferenceController',
       method: 'getUserPreferences',
       auth: 'jwt',
-      access: [constants.UserRoles.Admin, constants.UserRoles.User],
+      access: [],
       scopes: [constants.Scopes.ReadPreference, constants.Scopes.AllPreference]
     },
     put: {
       controller: 'PreferenceController',
       method: 'updateUserPreferences',
       auth: 'jwt',
-      access: [constants.UserRoles.Admin, constants.UserRoles.User],
+      access: [],
       scopes: [constants.Scopes.UpdatePreference, constants.Scopes.AllPreference]
     }
   },
