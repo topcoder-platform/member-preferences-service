@@ -1,5 +1,5 @@
 # Use the base image with Node.js 10.15.3-alpine
-FROM node:10.15.3-alpine
+FROM node:10.24.1-alpine
 
 # Add dependencies
 RUN apk update && apk add --no-cache bash git openssh python make gcc g++
