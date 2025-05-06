@@ -29,7 +29,7 @@
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.15.1",
-    "config": "^3.0.1",
+    "config": "^3.3.6",
     "cors": "^2.7.1",
     "express": "^4.15.4",
     "get-parameter-names": "^0.3.0",
